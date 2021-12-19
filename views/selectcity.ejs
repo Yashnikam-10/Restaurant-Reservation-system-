@@ -1,0 +1,34 @@
+
+<%- include("partials/header") %>
+<header class="title-section">
+    <div class="header-title">
+      <div class="container title-container city-container">
+        <div class="row ">
+
+
+            <h1 class="catch-title1 city-title title1">Chase The Flavour in Your City</h1>
+
+            <form action="/selectcity" method="post">
+              <div class="input-group mb-3 select-city">
+
+                <i class="fa fa-search fa-2x col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 icon "></i>
+                <select name="city"  class="form-select form-select-lg col-sm-9" id="inputGroupSelect03" aria-label="Example select with button addon">
+                  <option selected value="0">Select City</option>
+                  <option name="Mumbai" value="Mumbai">Mumbai</option>
+                  <option name="Bangalore" value="Bangalore">Bangalore</option>
+                  <option name="New Delhi" value="New Delhi">New Delhi</option>
+                  <option name="Kolkata" value="Kolkata">Kolkata</option>
+                  <option name="Hyderabad" value="Hyderabad">Hyderabad</option>
+                </select>
+              </div>
+              <div class="select-city">
+                <button type="submit" class="btn submit-button btn-md col-7">Select</button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+  </header>
+<%- include('partials/footer') %>
