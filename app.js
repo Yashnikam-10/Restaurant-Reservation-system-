@@ -1,4 +1,4 @@
-require('dotenv').config()
+const dotenv = require('dotenv').config({path:'./.env'})
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
@@ -363,11 +363,10 @@ app.post('/upload', function (req, res) {
       console.log(err);
     }
     if(req.isAuthenticated()){
-      req.user.photourl = "uploads/" + req.file.filename;
+      if(req.file !== undefined){
+      req.user.photourl = "/uploads/" + req.file.filename;
       req.user.save()
-      // User.UpdateOne({_id: req.user._id}, {
-      //
-      // })
+      }
       res.redirect("/profile")
     }else{
       res.redirect("/login")
@@ -514,7 +513,6 @@ app.post("/paynow", function (req, res) {
 })
 
 app.post('/callback', (req, res) => {
-  console.log("RAN");
   let data = req.body ;
   let restaurantName ;
   Order.findById(data.ORDERID, function (err, foundOrder) {
@@ -559,10 +557,7 @@ app.post('/callback', (req, res) => {
           })
         }
     }
-
   })
-
-
 })
 
 app.get("/logout", function (req, res) {
